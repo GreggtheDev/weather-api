@@ -5,20 +5,31 @@ document.getElementById('weather-form').addEventListener('submit', function(e) {
 });
 
 function getWeatherData(zip) {
-    const apiKey = 'your_actual_api_key'; // Replace 'your_actual_api_key' with your actual OpenWeatherMap API key
+    const apiKey = '4479492207e3f757cb6b2037b61195e3'; // Ensure this is correct
     const url = `https://api.openweathermap.org/data/2.5/weather?zip=${zip},us&appid=${apiKey}&units=imperial`;
 
     fetch(url)
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.json();
+        })
         .then(data => {
             displayWeatherData(data);
         })
         .catch(error => {
             console.error('Error fetching weather data:', error);
+            alert('Failed to fetch weather data. Please check the zip code and try again.');
         });
 }
 
 function displayWeatherData(data) {
+    if (!data || !data.main) {
+        console.error('Invalid weather data:', data);
+        alert('Failed to retrieve valid weather data. Please try again later.');
+        return;
+    }
     const date = new Date().toLocaleDateString();
     const city = data.name;
     const temperature = data.main.temp;
