@@ -1,57 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <title>Weather App</title>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="styles.css">
-</head>
-<body>
-    <h1>Weather App</h1>
-    <section>
-        <input type="text" id="zipcode2" placeholder="Enter your zip code">
-        <button onclick="getWeather()">Get Weather</button>
-    </section>
-    <section id="weatherData">
-        <!-- Weather data will be inserted here -->
-    </section>
-<script src="script.js"></script>
-</body>
-</html>
-<html lang="en">
-<head>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
     <title>Weather App</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Weather App</h1>
-    <section>
-        <input type="text" id="zipcode2" placeholder="Enter your zip code">
-        <button onclick="getWeather()">Get Weather</button>
-    </section>
-    <section id="weatherData">
-        <!-- Weather data will be inserted here -->
-    </section>
-<script src="script.js"></script>
-</body>
-</html>
-    <title>Weather App</title>
-    <link rel="stylesheet" type="text/css" href="styles.css">
-</head>
-<body>
-    <h1>Weather App</h1>
-    <section>
-        <input type="text" id="zipcode" placeholder="Enter your zip code">
-        <button onclick="getWeather()">Get Weather</button>
-    </section>
-    <section id="weatherData">
-        <!-- Weather data will be inserted here -->
-    </section>
-<script src="script.js"></script>
+    <div class="container">
+        <h1>Weather App</h1>
+        <form id="weather-form">
+            <label for="zip">Enter Zip Code:</label>
+            <input type="text" id="zip" name="zip" required>
+            <button type="submit">Get Weather</button>
+        </form>
+        <div id="weather-data" class="weather-data">
+            <h2>Weather Information</h2>
+            <p id="date"></p>
+            <p id="city"></p>
+            <p id="temperature"></p>
+            <p id="conditions"></p>
+            <p id="temp-hi-lo"></p>
+        </div>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
