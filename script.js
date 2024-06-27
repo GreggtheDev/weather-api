@@ -1,4 +1,4 @@
-const apiKey = 'https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&exclude={part}&appid={4479492207e3f757cb6b2037b61195e3}'; // Replace with your valid API key
+const apiKey = 'https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&exclude={part}&appid= 4479492207e3f757cb6b2037b61195e3 '; // Replace with your valid API key
 
 function getWeatherByZip() {
     const zip = document.getElementById('zipcode').value;
