@@ -2,9 +2,16 @@ const apiKey = '21fe2da93ac2845978f620d99b8162e6';
 
 function getWeatherByZip() {
     const zip = document.getElementById('zipcode').value;
+    console.log(`Fetching weather for ZIP code: ${zip}`);
     fetch(`https://api.openweathermap.org/geo/1.0/zip?zip=${zip},US&appid=${apiKey}`)
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
         .then(data => {
+            console.log('Geolocation data:', data);
             const { lat, lon, name } = data;
             fetchWeatherData(lat, lon, name);
         })
@@ -14,9 +21,16 @@ function getWeatherByZip() {
 function getWeatherByCity() {
     const city = document.getElementById('city').value;
     const state = document.getElementById('state').value;
+    console.log(`Fetching weather for city: ${city}, state: ${state}`);
     fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${city},${state},US&appid=${apiKey}`)
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
         .then(data => {
+            console.log('Geolocation data:', data);
             const { lat, lon, name } = data[0];
             fetchWeatherData(lat, lon, name);
         })
@@ -24,9 +38,16 @@ function getWeatherByCity() {
 }
 
 function fetchWeatherData(lat, lon, name) {
+    console.log(`Fetching weather data for coordinates: ${lat}, ${lon}`);
     fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely,hourly&units=imperial&appid=${apiKey}`)
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
         .then(data => {
+            console.log('Weather data:', data);
             displayWeatherData(data, name);
         })
         .catch(error => console.error('Error fetching weather data:', error));
