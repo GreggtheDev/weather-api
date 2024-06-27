@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header class="text-center my-4">
+            <h1>Weather App</h1>
+        </header>
+        <main>
+            <section class="text-center mb-4">
+                <div class="form-group">
+                    <input type="text" id="zipcode" class="form-control mb-2" placeholder="Enter Zip Code">
+                    <button class="btn btn-primary" onclick="getWeatherByZip()">Get Weather</button>
+                </div>
+                <div class="form-group">
+                    <input type="text" id="city" class="form-control mb-2" placeholder="Enter City">
+                    <input type="text" id="state" class="form-control mb-2" placeholder="Enter State">
+                    <button class="btn btn-primary" onclick="getWeatherByCity()">Get Weather</button>
+                </div>
+            </section>
+            <section id="weather-data" class="text-center">
+                <h2>Weather Data</h2>
+                <p id="current-date"></p>
+                <p id="city-name"></p>
+                <p id="current-temp"></p>
+                <p id="current-conditions"></p>
+                <p id="temp-hi-lo"></p>
+                <button class="btn btn-secondary" onclick="convertTemperature()">Convert Temperature</button>
+            </section>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
