@@ -10,7 +10,7 @@ document.getElementById('weather-form').addEventListener('submit', function(e) {
 
 // Function to fetch weather data from the OpenWeatherMap API
 function getWeatherData(zip) {
-    const apiKey = '4479492207e3f757cb6b2037b61195e3'; // Your API key for OpenWeatherMap
+    const apiKey = '4479492207e3f757cb6b2037b61195e3'; // API key for OpenWeatherMap
     const url = `https://api.openweathermap.org/data/2.5/weather?zip=${zip},us&appid=${apiKey}&units=imperial`;
 
     // Use the Fetch API to get data from the weather API
